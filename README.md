@@ -37,6 +37,7 @@ coding!
 - Anjelica May-Farmer: [GitHub](https://github.com/Anjie-MF) / [LinkedIn](https://www.linkedin.com/in/anjiemay23/)
 - Zahra: [GitHub](https://github.com/ZahraSoley)
 - Nahul: [GitHub](https://github.com/nahul100) / [LinkedIn](https://linkedin.com/in/liaccountname)
+- Hany Farag: [GitHub](https://github.com/hany2working-dev) / [LinkedIn](https://linkedin.com/in/liaccountname)
 
    ...
-- Teammate name #n: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
+- Teammate name #n: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://www.linkedin.com/in/hany-han-909380296/)
