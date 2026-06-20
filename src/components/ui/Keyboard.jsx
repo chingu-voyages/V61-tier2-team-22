@@ -4,12 +4,10 @@ export default function OnScreenKeyboard() {
 
     const [isDisabled, setIsDisabled] = useState(false);
 
-    //Keyboard Toggle View
     const toggleState = () => {
         setIsDisabled(!isDisabled);
     };
 
-    //Keyboard Layout Arrays 
     const keyboardLayout = [
         ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
         ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
@@ -18,7 +16,10 @@ export default function OnScreenKeyboard() {
 
     return (
         <div className="keyboard-container">
-            <button className="keyboard-toggle" onClick={toggleState}>
+            <button
+                className={`keyboard-toggle ${isDisabled ? "disabled" : ""}`}
+                onClick={toggleState}
+            >
                 <p>Physical Keyboard Enabled</p>
             </button>
             <div className="keyboard-rows">
@@ -32,7 +33,7 @@ export default function OnScreenKeyboard() {
                     </div>
                 ))}
             </div>
-        </div>
+        </div >
     )
 }
 
