@@ -1,10 +1,10 @@
-import './App.css'
+import OnScreenKeyboard from './components/game/Keyboard'
 
 function App() {
 
 
   return (
-    <></>
+    <OnScreenKeyboard />
   )
 }
 
