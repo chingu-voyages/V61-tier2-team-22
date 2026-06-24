@@ -7,16 +7,19 @@
        align-items: center;
        gap: 10px;
        padding: 10px;
-       background-color: #1a1a1a;
+       background-color: #101416;
+       color: #e0e3e5;
        font-family: sans-serif;
    }
 
    .keyboard-rows {
        display: flex;
        flex-direction: column;
-       gap: 10px;
+       gap: 12px;
        width: 100%;
+       border-radius: 8px;
        max-width: 500px;
+       background-color: #1c2022;
    }
 
    .keyboard-row {
@@ -29,10 +32,10 @@
    .keyboard-key {
        flex: 1;
        height: 48px;
-       border: none;
+       border: 1px solid #8b9386;
        border-radius: 5px;
-       background-color: #4a4a4a;
-       color: #ffffff;
+       background-color: #313537;
+       color: #e0e3e5;
        font-size: 1rem;
        font-weight: bold;
        text-transform: uppercase;
@@ -42,12 +45,10 @@
        justify-content: center;
    }
 
-   .keyboard-key:hover {
-       background-color: green;
-   }
-
+   .keyboard-key:hover,
    .keyboard-key:active {
-       background-color: purple;
+       background-color: #94d78c;
+       color: #003908;
    }
 
    .keyboard-toggle {
