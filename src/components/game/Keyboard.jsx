@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./Keyboard.css";
 
 export default function OnScreenKeyboard() {
 
@@ -14,6 +15,11 @@ export default function OnScreenKeyboard() {
         ['Guess', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'Backspace']
     ];
 
+    function handleClick(key) {
+        console.log({ key });
+    }
+
+
     return (
         <div className="keyboard-container">
             <button
@@ -26,7 +32,7 @@ export default function OnScreenKeyboard() {
                 {keyboardLayout.map((row, rowIndex) => (
                     <div key={rowIndex} className="keyboard-row">
                         {row.map((key) => (
-                            <button key={key} className="keyboard-key">
+                            <button key={key} className="keyboard-key" onClick={() => handleClick(key)}>
                                 {key}
                             </button>
                         ))}
