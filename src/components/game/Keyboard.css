@@ -1,0 +1,65 @@
+   /* ----------------------------------------
+     Keyboard CSS
+  ---------------------------------------- */
+   .keyboard-container {
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       gap: 10px;
+       padding: 10px;
+       background-color: #101416;
+       color: #e0e3e5;
+       font-family: sans-serif;
+   }
+
+   .keyboard-rows {
+       display: flex;
+       flex-direction: column;
+       gap: 12px;
+       width: 100%;
+       border-radius: 8px;
+       max-width: 500px;
+       background-color: #1c2022;
+   }
+
+   .keyboard-row {
+       display: flex;
+       justify-content: center;
+       gap: 5px;
+       width: 100%;
+   }
+
+   .keyboard-key {
+       flex: 1;
+       height: 48px;
+       border: 1px solid #8b9386;
+       border-radius: 5px;
+       background-color: #313537;
+       color: #e0e3e5;
+       font-size: 1rem;
+       font-weight: bold;
+       text-transform: uppercase;
+       cursor: pointer;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+   }
+
+   .keyboard-key:hover,
+   .keyboard-key:active {
+       background-color: #94d78c;
+       color: #003908;
+   }
+
+   .keyboard-toggle {
+       background: #262b2c;
+       color: #e0e3e5;
+       transition: 0.2s ease;
+   }
+
+   .keyboard-toggle.disabled {
+       background: #1c2022;
+       color: #8b9386;
+       cursor: not-allowed;
+       pointer-events: none;
+   }
