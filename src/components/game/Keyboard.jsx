@@ -1,49 +1,41 @@
 import { useState, useEffect } from "react";
-import "./Keyboard.css";
-
-export default function OnScreenKeyboard() {
+import "./KeyBoard.css";
+export default function Keyboard({onKeyPress}) {
 
     const [isDisabled, setIsDisabled] = useState(false);
 
     const toggleState = () => {
-        setIsDisabled(prev => !prev);
+        setIsDisabled(!isDisabled);
     };
 
     const keyboardLayout = [
-        ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
-        ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'],
-        ['Guess', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', 'Backspace']
+        ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
+        ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
+        ['Guess', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'Backspace']
     ];
 
-    function handleClick(key) {
-        console.log({ key });
-    }
-
     useEffect(() => {
-        const whenKeyIsPressed = (event) => {
-            if (isDisabled) {
-                console.log('Physical Keyboard not in use.');
+        if (isDisabled) return;
+
+        const handleKeyDown = (e) => {
+            if (e.key === "Enter") {
+                onKeyPress("Guess");
                 return;
             }
-            if (event.key === 'Enter') {
-                handleClick('Guess');
-                console.log('Guess entered ');// TODO: Replace with parent callback once Game input handler is implemented.
+
+            if (e.key === "Backspace") {
+                onKeyPress("Backspace");
+                return;
             }
-            if (event.key === 'Backspace') {
-                handleClick('Backspace');
-                console.log('Letter was deleted')// TODO: Replace with parent callback once Game input handler is implemented.
+
+            if (/^[a-zA-Z]$/.test(e.key)) {
+                onKeyPress(e.key.toLowerCase());
             }
-            if ((/^[a-zA-Z]$/.test(event.key))) {
-                handleClick(event.key.toUpperCase());
-                console.log('Key was pressed');// TODO: Replace with parent callback once Game input handler is implemented.
-            }
-        }
-        window.addEventListener('keydown', whenKeyIsPressed);
-        return () => {
-            window.removeEventListener('keydown', whenKeyIsPressed);
         };
 
-    }, [isDisabled]);
+        window.addEventListener("keydown", handleKeyDown);
+        return () => window.removeEventListener("keydown", handleKeyDown);
+    }, [isDisabled, onKeyPress]);
 
     return (
         <div className="keyboard-container">
@@ -51,16 +43,16 @@ export default function OnScreenKeyboard() {
                 className={`keyboard-toggle ${isDisabled ? "disabled" : ""}`}
                 onClick={toggleState}
             >
-                {isDisabled ? "Physical Keyboard Disabled" : "Phsyical Keyboard Enabled"}
+                 {isDisabled ? "Physical Keyboard Disabled" : "Physical Keyboard Enabled"}
             </button>
-
             <div className="keyboard-rows">
                 {keyboardLayout.map((row, rowIndex) => (
                     <div key={rowIndex} className="keyboard-row">
                         {row.map((key) => (
-                            <button key={key} className="keyboard-key" onClick={() => handleClick(key)}>
+                            <button key={key} className="keyboard-key" onClick={() => onKeyPress(key)}>
                                 {key}
                             </button>
+                            
                         ))}
                     </div>
                 ))}
@@ -68,4 +60,3 @@ export default function OnScreenKeyboard() {
         </div >
     )
 }
-
