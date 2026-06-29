@@ -10,9 +10,9 @@ export default function OnScreenKeyboard() {
     };
 
     const keyboardLayout = [
-        ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
-        ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
-        ['Guess', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'Backspace']
+        ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
+        ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'],
+        ['Guess', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', 'Backspace']
     ];
 
     function handleClick(key) {
@@ -21,22 +21,29 @@ export default function OnScreenKeyboard() {
 
     useEffect(() => {
         const whenKeyIsPressed = (event) => {
+            if (isDisabled) {
+                console.log('Physical Keyboard not in use.');
+                return;
+            }
             if (event.key === 'Enter') {
+                handleClick('Guess');
                 console.log('Guess entered ');
             }
             if (event.key === 'Backspace') {
+                handleClick('Backspace');
                 console.log('Letter was deleted')
             }
             if ((/^[a-zA-Z]$/.test(event.key))) {
-                console.log('Key was pressed')
+                handleClick(event.key.toUpperCase());
+                console.log('Key was pressed');
             }
         }
         window.addEventListener('keydown', whenKeyIsPressed);
         return () => {
             window.removeEventListener('keydown', whenKeyIsPressed);
-        }; //cleanup function goes here 
+        };
 
-    }, []);
+    }, [isDisabled]);
 
     return (
         <div className="keyboard-container">
@@ -44,8 +51,9 @@ export default function OnScreenKeyboard() {
                 className={`keyboard-toggle ${isDisabled ? "disabled" : ""}`}
                 onClick={toggleState}
             >
-                <p>Physical Keyboard Enabled</p>
+                {isDisabled ? "Physical Keyboard Disabled" : "Phsyical Keyboard Enabled"}
             </button>
+
             <div className="keyboard-rows">
                 {keyboardLayout.map((row, rowIndex) => (
                     <div key={rowIndex} className="keyboard-row">
