@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./Keyboard.css";
 
 export default function OnScreenKeyboard() {
@@ -19,6 +19,24 @@ export default function OnScreenKeyboard() {
         console.log({ key });
     }
 
+    useEffect(() => {
+        const whenKeyIsPressed = (event) => {
+            if (event.key === 'Enter') {
+                console.log('Guess entered ');
+            }
+            if (event.key === 'Backspace') {
+                console.log('Letter was deleted')
+            }
+            if ((/^[a-zA-Z]$/.test(event.key))) {
+                console.log('Key was pressed')
+            }
+        }
+        window.addEventListener('keydown', whenKeyIsPressed);
+        return () => {
+            window.removeEventListener('keydown', whenKeyIsPressed);
+        }; //cleanup function goes here 
+
+    }, []);
 
     return (
         <div className="keyboard-container">
