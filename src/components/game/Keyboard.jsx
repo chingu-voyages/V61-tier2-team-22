@@ -6,7 +6,7 @@ export default function OnScreenKeyboard() {
     const [isDisabled, setIsDisabled] = useState(false);
 
     const toggleState = () => {
-        setIsDisabled(!isDisabled);
+        setIsDisabled(prev => !prev);
     };
 
     const keyboardLayout = [
@@ -27,15 +27,15 @@ export default function OnScreenKeyboard() {
             }
             if (event.key === 'Enter') {
                 handleClick('Guess');
-                console.log('Guess entered ');
+                console.log('Guess entered ');// TODO: Replace with parent callback once Game input handler is implemented.
             }
             if (event.key === 'Backspace') {
                 handleClick('Backspace');
-                console.log('Letter was deleted')
+                console.log('Letter was deleted')// TODO: Replace with parent callback once Game input handler is implemented.
             }
             if ((/^[a-zA-Z]$/.test(event.key))) {
                 handleClick(event.key.toUpperCase());
-                console.log('Key was pressed');
+                console.log('Key was pressed');// TODO: Replace with parent callback once Game input handler is implemented.
             }
         }
         window.addEventListener('keydown', whenKeyIsPressed);
