@@ -1,62 +1,88 @@
-import { useState, useEffect } from "react";
-import "./KeyBoard.css";
-export default function Keyboard({onKeyPress}) {
+import { useState } from 'react'
+import './App.css'
+import { getRandomWord } from "./components/utils/WordleUtils";
+import Board from './components/game/Board';
+import Keyboard from './components/game/KeyBoard';
+import { WORDS } from './components/data/WordList';
+function App() {
+  const [secretWord, setSecretWord] = useState(getRandomWord());
 
-    const [isDisabled, setIsDisabled] = useState(false);
+  const startNewGame = () => {
+    setSecretWord(getRandomWord());
+  }
+const MAX_ROWS = 6;
+const WORD_LENGTH = 5;
 
-    const toggleState = () => {
-        setIsDisabled(!isDisabled);
-    };
+const [board, setBoard] = useState(
+    Array(MAX_ROWS).fill().map(() => Array(WORD_LENGTH).fill(""))
+  );
 
-    const keyboardLayout = [
-        ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
-        ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
-        ['Guess', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'Backspace']
-    ];
+  const [currentRow, setCurrentRow] = useState(0);
+  const [currentCol, setCurrentCol] = useState(0);
 
-    useEffect(() => {
-        if (isDisabled) return;
+  function handleKey(key) {
 
-        const handleKeyDown = (e) => {
-            if (e.key === "Enter") {
-                onKeyPress("Guess");
-                return;
-            }
+    if (key === "Backspace") {
+      if (currentCol === 0) return;
 
-            if (e.key === "Backspace") {
-                onKeyPress("Backspace");
-                return;
-            }
+      const newBoard = [...board];
+      newBoard[currentRow][currentCol - 1] = "";
 
-            if (/^[a-zA-Z]$/.test(e.key)) {
-                onKeyPress(e.key.toLowerCase());
-            }
-        };
+      setBoard(newBoard);
+      setCurrentCol(currentCol - 1);
+      return;
+    }
 
-        window.addEventListener("keydown", handleKeyDown);
-        return () => window.removeEventListener("keydown", handleKeyDown);
-    }, [isDisabled, onKeyPress]);
+    if (key === "Guess") {
 
-    return (
-        <div className="keyboard-container">
-            <button
-                className={`keyboard-toggle ${isDisabled ? "disabled" : ""}`}
-                onClick={toggleState}
-            >
-                 {isDisabled ? "Physical Keyboard Disabled" : "Physical Keyboard Enabled"}
-            </button>
-            <div className="keyboard-rows">
-                {keyboardLayout.map((row, rowIndex) => (
-                    <div key={rowIndex} className="keyboard-row">
-                        {row.map((key) => (
-                            <button key={key} className="keyboard-key" onClick={() => onKeyPress(key)}>
-                                {key}
-                            </button>
-                            
-                        ))}
-                    </div>
-                ))}
-            </div>
-        </div >
-    )
+      if (currentCol !== WORD_LENGTH) {
+        alert("Word must be 5 letters.");
+        return ;
+        
+      }
+
+      const guess = board[currentRow].join("");
+
+      if (!WORDS.includes(guess)) {
+        alert("Invalid word.");
+      }
+
+      if (guess === secretWord) {
+        alert("You Win!");
+        return ;
+      }
+
+      if (currentRow === MAX_ROWS - 1) {
+        alert(`Game Over. Word was ${secretWord}`);
+        return;
+      }
+
+      setCurrentRow(currentRow + 1);
+      setCurrentCol(0);
+      return;
+    }
+
+    if (currentCol >= WORD_LENGTH) return;
+
+    const newBoard = [...board];
+    newBoard[currentRow][currentCol] = key.toUpperCase();
+
+    setBoard(newBoard);
+    setCurrentCol(currentCol + 1);
+   
+  }
+
+  return (
+    <>
+      <h1>Wordle</h1>
+      <button onClick={startNewGame}>
+        New Game
+      </button>
+      <Board board={board} secretWord={secretWord}/>
+      <Keyboard onKeyPress={handleKey}/>
+      
+    </>
+  )
 }
+
+export default App ;
