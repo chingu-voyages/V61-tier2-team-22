@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "./KeyBoard.css";
+import './Keyboard.css';
 export default function Keyboard({onKeyPress}) {
 
     const [isDisabled, setIsDisabled] = useState(false);

@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import './App.css'
-import { getRandomWord } from "./utils/WordleUtils";
-import Board from './kboard/Board';
-import Keyboard from './kboard/KeyBoard';
-import { WORDS } from './data/WordList';
+import { getRandomWord } from "./components/utils/WordleUtils";
+import Board from './components/game/Board';
+import Keyboard from './components/game/Keyboard';
+import { WORDS } from './components/data/WordList';
 function App() {
   const [secretWord, setSecretWord] = useState(getRandomWord());
 
