@@ -4,6 +4,7 @@ import { getRandomWord } from "./components/utils/WordleUtils";
 import Board from './components/game/Board';
 import Keyboard from './components/game/Keyboard';
 import { WORDS } from './components/data/WordList';
+import GameOver from './components/GameOver';
 function App() {
   const [secretWord, setSecretWord] = useState(getRandomWord());
 
@@ -80,6 +81,7 @@ const [board, setBoard] = useState(
       </button>
       <Board board={board} secretWord={secretWord}/>
       <Keyboard onKeyPress={handleKey}/>
+      <GameOver/>
       
     </>
   )
