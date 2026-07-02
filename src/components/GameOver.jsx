@@ -3,7 +3,7 @@ function GameOver (){
     <div>
 <div className="win">win</div>
 <div className="gameOver">Game Over</div>
-<div className="PlayAgine">Play Agine </div>
+<div className="PlayAgain">Play Again </div>
 </div>
 )
 }
