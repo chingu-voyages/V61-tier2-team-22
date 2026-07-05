@@ -1,17 +1,19 @@
 import "./Board.css";
 
-export default function Board({ board, secretWord }) {
+export default function Board({ board, secretWord,submittedRows}) {
 
-    function getColor(letter,index,row){
+    function getColor(letter, index, row,rowIndex) {
+       
+       if (!submittedRows.includes(rowIndex)) return "";
+        
+        if (secretWord[index] === letter)
+            return "green"; 
 
-        if(row.includes("")) return "";
-
-        if(secretWord[index]===letter)
-            return "green";
-
-        if(secretWord.includes(letter))
+        
+        if (secretWord.includes(letter))
             return "yellow";
 
+        
         return "gray";
 
     }
@@ -28,7 +30,7 @@ export default function Board({ board, secretWord }) {
 
                         <div
                             key={colIndex}
-                            className={`tile ${getColor(letter,colIndex,row)}`}
+                            className={`tile ${getColor(letter,colIndex,row,rowIndex)}`}
                         >
 
                             {letter}
