@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 import './Keyboard.css';
 export default function Keyboard({onKeyPress}) {
 
-    const [isDisabled, setIsDisabled] = useState(false);
+    const [physicalDisabled, setPhysicalDisabled] = useState(false);
 
-    const toggleState = () => {
-        setIsDisabled(!isDisabled);
+    const togglePhysicalKeyboard = () => {
+        setPhysicalDisabled(!physicalDisabled);
     };
 
     const keyboardLayout = [
@@ -15,7 +15,7 @@ export default function Keyboard({onKeyPress}) {
     ];
 
     useEffect(() => {
-        if (isDisabled) return;
+        if (physicalDisabled) return;
 
         const handleKeyDown = (e) => {
             if (e.key === "Enter") {
@@ -35,21 +35,28 @@ export default function Keyboard({onKeyPress}) {
 
         window.addEventListener("keydown", handleKeyDown);
         return () => window.removeEventListener("keydown", handleKeyDown);
-    }, [isDisabled, onKeyPress]);
+    }, [physicalDisabled, onKeyPress]);
+
+    
 
     return (
         <div className="keyboard-container">
             <button
-                className={`keyboard-toggle ${isDisabled ? "disabled" : ""}`}
-                onClick={toggleState}
+                className={`keyboard-toggle ${physicalDisabled ? "disabled" : ""}`}
+                onClick={togglePhysicalKeyboard}
             >
-                 {isDisabled ? "Physical Keyboard Disabled" : "Physical Keyboard Enabled"}
+                 {physicalDisabled ? "🔒 Physical Keyboard Disabled" : "⌨️ Physical Keyboard Enabled"}
             </button>
             <div className="keyboard-rows">
                 {keyboardLayout.map((row, rowIndex) => (
                     <div key={rowIndex} className="keyboard-row">
                         {row.map((key) => (
-                            <button key={key} className="keyboard-key" onClick={() => onKeyPress(key)}>
+                            <button 
+                                key={key} 
+                                className="keyboard-key" 
+                                onClick={() => onKeyPress(key)}
+                                
+                            >
                                 {key}
                             </button>
                             
