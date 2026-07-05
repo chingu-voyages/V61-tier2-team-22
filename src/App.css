@@ -1,0 +1,259 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+.app-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  width: 100%;
+}
+
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  max-width: 700px;
+}
+
+.new-game-btn {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  background: var(--accent);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  align-self: center;
+}
+
+.new-game-btn:hover {
+  background: var(--accent);
+  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(170, 59, 255, 0.3);
+}
+
+.new-game-btn:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .app-main {
+    padding: 1.5rem 1rem;
+  }
+
+  .game-container {
+    gap: 1.5rem;
+  }
+
+  .new-game-btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-main {
+    padding: 1rem 0.75rem;
+  }
+
+  .game-container {
+    gap: 1rem;
+  }
+
+  .new-game-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+}
+      
+    
+  
+
+
+#spacer {
+  height: 88px;
+  border-top: 1px solid var(--border);
+  @media (max-width: 1024px) {
+    height: 48px;
+  }
+}
+
+.ticks {
+  position: relative;
+  width: 100%;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: -4.5px;
+    border: 5px solid transparent;
+  }
+
+  &::before {
+    left: 0;
+    border-left-color: var(--border);
+  }
+  &::after {
+    right: 0;
+    border-right-color: var(--border);
+  }
+}
+
+.app-shell {
+  width: min(100%, 900px);
+  margin: 0 auto;
+  padding: 24px 20px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  box-sizing: border-box;
+}
+
+.app-header,
+.footer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: center;
+  text-align: center;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  letter-spacing: -0.08em;
+}
+
+.app-header p {
+  margin: 0;
+  color: var(--text);
+  font-size: 1rem;
+}
+
+.game-actions {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.new-game,
+.play-again {
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  padding: 12px 22px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.new-game:hover,
+.play-again:hover {
+  transform: translateY(-1px);
+  background: #8c2ee5;
+}
+
+.game-area {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.result-card {
+  width: 100%;
+  max-width: 640px;
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  padding: 24px;
+}
+
+.result-card h2 {
+  margin: 0 0 10px;
+  color: var(--text-h);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+.result-card p {
+  margin: 0 0 18px;
+  color: var(--text);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.footer {
+  border-top: 1px solid var(--border);
+  padding-top: 18px;
+}
+
+.footer p {
+  margin: 0;
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.team-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.team-links a {
+  color: var(--accent);
+  text-decoration: none;
+  background: rgba(170, 59, 255, 0.08);
+  padding: 8px 12px;
+  border-radius: 999px;
+}
+
+.team-links a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .app-shell {
+    padding: 18px 14px 28px;
+  }
+
+  .result-card {
+    padding: 18px;
+  }
+
+  .new-game,
+  .play-again {
+    width: 100%;
+    max-width: 320px;
+  }
+}
+
+.inline-message {
+  margin-top: 8px;
+  display: inline-block;
+  background: rgba(255, 205, 60, 0.12);
+  color: #b45309;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-weight: 600;
+}
