@@ -3,9 +3,9 @@ import './App.css'
 import { getRandomWord } from "./components/utils/WordleUtils";
 import Board from './components/game/Board';
 import Keyboard from './components/game/Keyboard';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import GameModal from './components/GameModal';
+import Header from './components/header/Header';
+import Footer from './components/footer/Footer';
+import GameModal from './components/modal/GameModal';
 import { WORDS } from './components/data/WordList';
 
 const MAX_ROWS = 6;
