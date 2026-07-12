@@ -35,7 +35,6 @@ The project focuses on strengthening skills in **React.js**, component-based arc
 - HTML5
 - CSS3
 - React Hooks (useState, useEffect)
-- Github Copilot,OpenAI
 - Vite
   
 
