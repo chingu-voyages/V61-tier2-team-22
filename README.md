@@ -1,43 +1,146 @@
-# voyage-tasks
+# 🎮 Wordle Game
 
-Your project's `readme` is as important to success as your code. For 
-this reason you should put as much care into its creation and maintenance
-as you would any other component of the application.
+A React-based implementation of the popular **Wordle** game where players have six attempts to guess a randomly selected five-letter English word. The game features an interactive game board, virtual and physical keyboard support, real-time color feedback, and a modern responsive interface.
 
-If you are unsure of what should go into the `readme` let this article,
-written by an experienced Chingu, be your starting point - 
-[Keys to a well written README](https://tinyurl.com/yk3wubft).
 
-And before we go there's "one more thing"! Once you decide what to include
-in your `readme` feel free to replace the text we've provided here.
+# 📖 Overview
 
-> Own it & Make it your Own!
+This project was developed as part of the **Chingu Voyage Program**, where participants collaborate to build real-world applications. The objective of this assignment was to recreate the popular **Wordle** game within **6 weeks**, following an agile development process and applying modern frontend development practices.
 
-## Team Documents
+The project focuses on strengthening skills in **React.js**, component-based architecture, state management, event handling, and implementing game logic while maintaining clean, modular, and reusable code.
 
-You may find these helpful as you work together to organize your project.
 
-- [Team Project Ideas](./docs/team_project_ideas.md)
-- [Team Decision Log](./docs/team_decision_log.md)
+# ✨ Features
 
-Meeting Agenda templates (located in the `/docs` directory in this repo):
+- 🎲 Randomly selects a secret five-letter word from a built-in dictionary
+- 🟩 Six attempts to guess the correct word
+- 🎨 Wordle-style color feedback
+  - Green: Correct letter in the correct position
+  - Yellow: Correct letter in the wrong position
+  - Gray: Letter not in the word
+- ⌨️ Supports both:
+  - Physical keyboard input
+  - On-screen virtual keyboard
+- 🔄 Play Again functionality
+- 📱 Responsive user interface
+- 🚫 Prevents guesses shorter than five letters
+- 📚 Validates guesses against the built-in dictionary
+- 🏆 Win/Lose modal after game completion
+- 🧩 Component-based architecture using React
 
-- Meeting - Voyage Kickoff --> ./docs/meeting-voyage_kickoff.docx
-- Meeting - App Vision & Feature Planning --> ./docs/meeting-vision_and_feature_planning.docx
-- Meeting - Sprint Retrospective, Review, and Planning --> ./docs/meeting-sprint_retrospective_review_and_planning.docx
-- Meeting - Sprint Open Topic Session --> ./docs/meeting-sprint_open_topic_session.docx
+
+# 🛠 Technologies Used
+
+- React.js
+- HTML5
+- CSS3
+- React Hooks (useState, useEffect)
+- Github Copilot,OpenAI
+- Vite
+  
+
+# 📂 Project Structure
+
+
+```
+src/
+│
+├── assets/
+│
+├── components/
+│   │
+│   ├── data/
+│   │   └── WordList.jsx
+│   │
+│   ├── footer/
+│   │   ├── Footer.jsx
+│   │   └── Footer.css
+│   │
+│   ├── game/
+│   │   ├── Board.jsx
+│   │   ├── Board.css
+│   │   ├── Keyboard.jsx
+│   │   └── Keyboard.css
+│   │
+│   ├── header/
+│   │   ├── Header.jsx
+│   │   └── Header.css
+│   │
+│   ├── modal/
+│   │   ├── GameModal.jsx
+│   │   └── GameModal.css
+│   │
+│   └── utils/
+│       └── WordleUtils.jsx
+│
+├── App.jsx
+├── App.css
+├── index.css
+└── main.jsx
+```
+
+---
+
+
+# 🚀 Running the Project
+
+### 1. Clone the repository
+
+git clone https://github.com/nahul100/wordle-game.git
+
+### 2. Navigate to the project
+
+cd wordle-game
+
+### 3. Install dependencies
+
+npm install
+
+### 4. Start the development server
+
+npm run dev
+
+### 5. Open in your browser
+
+http://localhost:5173
+
+# 📦 Dependencies
+
+Main packages required:
+
+- React
+- React DOM
+- Vite
+
+Install them with:
+npm install
+
+# 🎮 Gameplay
+
+1. A random five-letter word is selected.
+2. Enter a five-letter guess using either:
+   - Your physical keyboard
+   - The on-screen keyboard
+3. Press **Enter** or **Guess** to submit.
+4. Receive color-coded feedback after each guess.
+5. Guess the word within six attempts to win.
+6. Click **Play Again** to start a new game.
+
+# 🔮 Future Improvements
+
+- 🤖 AI-powered hint system
+- 💡 AI next-word recommendation
+- 📊 Player statistics dashboard
+- 🔥 Daily challenge mode
+- 🌙 Dark/Light theme toggle
+- 🎵 Sound effects and animations
+- 🌍 Multiplayer mode
+- ☁️ Online leaderboard
+- 📖 Vocabulary learning mode
 
 ## Our Team
-
-Everyone on your team should add their name along with a link to their GitHub
-& optionally their LinkedIn profiles below. Do this in Sprint #1 to validate
-your repo access and to practice PR'ing with your team *before* you start
-coding!
 
 - Anjelica May-Farmer: [GitHub](https://github.com/Anjie-MF) / [LinkedIn](https://www.linkedin.com/in/anjiemay23/)
 - Zahra: [GitHub](https://github.com/ZahraSoley)
 - Nahul: [GitHub](https://github.com/nahul100) / [LinkedIn](https://linkedin.com/in/liaccountname)
 - Hany Farag: [GitHub](https://github.com/hany2working-dev) / [LinkedIn](https://linkedin.com/in/liaccountname)
-
-   ...
-- Teammate name #n: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://www.linkedin.com/in/hany-han-909380296/)
