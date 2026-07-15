@@ -99,7 +99,7 @@ npm install
 
 npm run dev
 
-### 5. Open in Github-Pages
+### 5. Live Link !!
 
 https://chingu-voyages.github.io/V61-tier2-team-22/
 
