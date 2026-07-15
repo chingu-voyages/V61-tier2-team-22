@@ -99,9 +99,9 @@ npm install
 
 npm run dev
 
-### 5. Open in your browser
+### 5. Open in Vercel
 
-http://localhost:5173
+https://wordle-tau-flame.vercel.app/
 
 # 📦 Dependencies
 
