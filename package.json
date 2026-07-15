@@ -1,5 +1,6 @@
 {
-  "name": "V61-tier2-team-22",
+  "name": "wordle-game",
+  "homepage": "https://nahul100.github.io/Wordle/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
