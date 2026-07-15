@@ -99,9 +99,9 @@ npm install
 
 npm run dev
 
-### 5. Open in Vercel
+### 5. Open in Github-Pages
 
-https://wordle-tau-flame.vercel.app/
+https://chingu-voyages.github.io/V61-tier2-team-22/
 
 # 📦 Dependencies
 
