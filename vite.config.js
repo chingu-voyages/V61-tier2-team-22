@@ -5,7 +5,7 @@ import path from "path";
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  base: '/wordle/',
+  base: '/V61-tier2-team-22/',
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
