@@ -2,10 +2,12 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [development] 
+    branches: [development]
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 jobs:
   build-and-deploy:
@@ -31,3 +33,4 @@ jobs:
         with:
           folder: dist
           branch: gh-pages
+          token: ${{ secrets.GITHUB_TOKEN }}
