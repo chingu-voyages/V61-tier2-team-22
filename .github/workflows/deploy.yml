@@ -1,7 +1,7 @@
 name: Deploy React Vite Site
 on:
   push:
-    branches: [developement] # Updated to match your exact branch name
+    branches: [development] # Updated to match your exact branch name
 permissions:
   contents: read
   pages: write
