@@ -114,6 +114,11 @@ Main packages required:
 Install them with:
 npm install
 
+# Project Managemaent 
+
+For project management we used jira.Here is the jira link :
+https://zeesoleildev.atlassian.net/jira/software/projects/TT/list?jql=project%20%3D%20TT%20AND%20status%20%3D%20Done%20AND%20statusCategoryChangedDate%20%3E%3D%20-2w
+
 # 🎮 Gameplay
 
 1. A random five-letter word is selected.
@@ -143,3 +148,4 @@ npm install
 - Zahra: [GitHub](https://github.com/ZahraSoley)
 - Nahul: [GitHub](https://github.com/nahul100) / [LinkedIn](https://linkedin.com/in/liaccountname)
 - Hany Farag: [GitHub](https://github.com/hany2working-dev) / [LinkedIn](https://linkedin.com/in/liaccountname)
+
